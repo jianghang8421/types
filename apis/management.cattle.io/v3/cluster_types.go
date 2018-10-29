@@ -71,6 +71,7 @@ type ClusterSpec struct {
 	DefaultClusterRoleForProjectMembers  string                               `json:"defaultClusterRoleForProjectMembers,omitempty" norman:"type=reference[roleTemplate]"`
 	DockerRootDir                        string                               `json:"dockerRootDir,omitempty" norman:"default=/var/lib/docker"`
 	EnableNetworkPolicy                  *bool                                `json:"enableNetworkPolicy" norman:"default=false"`
+	Arch                                 string                               `json:"arch"`
 }
 
 type ImportedConfig struct {
@@ -85,7 +86,6 @@ type ClusterStatus struct {
 	// https://kubernetes.io/docs/api-reference/v1.8/#componentstatus-v1-core
 	Driver                               string                   `json:"driver"`
 	AgentImage                           string                   `json:"agentImage"`
-	Arch                                 string                   `json:"arch"`
 	ComponentStatuses                    []ClusterComponentStatus `json:"componentStatuses,omitempty"`
 	APIEndpoint                          string                   `json:"apiEndpoint,omitempty"`
 	ServiceAccountToken                  string                   `json:"serviceAccountToken,omitempty"`
